@@ -21,3 +21,4 @@ Se ha instalado las dependecias:
 -Spring Boot DevTool<br>
 -Spring Data JPA<br>
 -Spring Security<br>
+-Spring Starter Email
