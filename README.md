@@ -15,9 +15,9 @@ Se utilizara JDK 17 y Maven
 
 Se ha instalado las dependecias:
 
--Thymeleaf
--Spring Web
--MySQLDriver
--Spring Boot DevTool
--Spring Data JPA
--Spring Security
+-Thymeleaf<br>
+-Spring Web<br>
+-MySQLDriver<br>
+-Spring Boot DevTool<br>
+-Spring Data JPA<br>
+-Spring Security<br>
