@@ -1,0 +1,51 @@
+CREATE TABLE Profesores(
+    nombre VARCHAR(60) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    email VARCHAR(100) PRIMARY KEY,
+    contraseña VARCHAR(255) NOT NULL,
+    directiva BOOLEAN NOT NULL
+);
+
+CREATE TABLE Empresas(
+    nombre VARCHAR(100) PRIMARY KEY,
+    descripcion VARCHAR(255) NOT NULL
+);
+CREATE TABLE Cursos(
+	nombre VARCHAR(50) PRIMARY KEY
+);
+
+CREATE TABLE Alumnos(
+    nombre VARCHAR(60) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    email VARCHAR(100) PRIMARY KEY,
+    fecha_nacimiento DATE NOT NULL,
+    curso VARCHAR(50) NOT NULL,
+    CONSTRAINT FK_AlumnoCurso FOREIGN KEY (curso)
+    REFERENCES Cursos(nombre)
+);
+
+CREATE TABLE Practicas(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    fecha_inicio DATE NOT NULL,
+    fecha_final DATE NOT NULL,
+    alumno VARCHAR(100) NOT NULL,
+    empresa VARCHAR(100) NOT NULL,
+    profesor VARCHAR(100) NOT NULL,
+    CONSTRAINT FK_PracticasAlumno FOREIGN KEY (alumno)
+    REFERENCES Alumnos(email),
+    CONSTRAINT FK_PracticasEmpresa FOREIGN KEY (empresa)
+    REFERENCES Empresas(nombre),
+    CONSTRAINT FK_PracticasProfesor FOREIGN KEY (profesor)
+    REFERENCES Profesores(email)
+);
+
+CREATE TABLE Comentarios(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    texto VARCHAR(255) NOT NULL,
+    practica INT NOT NULL,
+    profesor VARCHAR(100) NOT NULL,
+    CONSTRAINT FK_ComentariosPractica FOREIGN KEY (practica)
+    REFERENCES Practicas(id),
+    CONSTRAINT FK_ComentariosProfesor FOREIGN KEY (profesor)
+    REFERENCES Profesores(email)
+);
