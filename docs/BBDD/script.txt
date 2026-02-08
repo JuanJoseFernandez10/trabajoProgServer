@@ -22,21 +22,25 @@ CREATE TABLE Alumnos(
     curso VARCHAR(50) NOT NULL,
     CONSTRAINT FK_AlumnoCurso FOREIGN KEY (curso)
     REFERENCES Cursos(nombre)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE Practicas(
     id INT PRIMARY KEY AUTO_INCREMENT,
     fecha_inicio DATE NOT NULL,
     fecha_final DATE NOT NULL,
-    alumno VARCHAR(100) NOT NULL,
+    alumno VARCHAR(100) NOT NULL UNIQUE,
     empresa VARCHAR(100) NOT NULL,
     profesor VARCHAR(100) NOT NULL,
     CONSTRAINT FK_PracticasAlumno FOREIGN KEY (alumno)
-    REFERENCES Alumnos(email),
+    REFERENCES Alumnos(email)
+    ON DELETE CASCADE,
     CONSTRAINT FK_PracticasEmpresa FOREIGN KEY (empresa)
-    REFERENCES Empresas(nombre),
+    REFERENCES Empresas(nombre)
+    ON DELETE CASCADE,
     CONSTRAINT FK_PracticasProfesor FOREIGN KEY (profesor)
     REFERENCES Profesores(email)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE Comentarios(
@@ -45,7 +49,9 @@ CREATE TABLE Comentarios(
     practica INT NOT NULL,
     profesor VARCHAR(100) NOT NULL,
     CONSTRAINT FK_ComentariosPractica FOREIGN KEY (practica)
-    REFERENCES Practicas(id),
+    REFERENCES Practicas(id)
+    ON DELETE CASCADE,
     CONSTRAINT FK_ComentariosProfesor FOREIGN KEY (profesor)
     REFERENCES Profesores(email)
+    ON DELETE CASCADE
 );
