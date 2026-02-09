@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.application.Entitys.Profesor;
+import com.application.Repository.PracticaRepository;
 import com.application.Repository.ProfesorRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -19,6 +20,8 @@ public class AuthController {
 
     @Autowired
     private ProfesorRepository profesorRepo;
+    @Autowired
+    private PracticaRepository practicarRepo;
 
 
     @GetMapping({"/", "/login"})
@@ -41,6 +44,8 @@ public class AuthController {
         }
 
         Profesor profesor = optProf.get();
+        
+        profesor.setPracticas(practicarRepo.findByProfesor(profesor));
 
         if (!(password.equals( profesor.getContraseña()))) {
             redirect.addFlashAttribute("error", "Contraseña incorrecta");
@@ -49,6 +54,7 @@ public class AuthController {
 
         // Login OK → guardamos en sesión
         session.setAttribute("profesor", profesor);
+        session.setAttribute("rol", profesor.isDirectiva());
 
         return "redirect:/home";  // o donde quieras ir después
     }

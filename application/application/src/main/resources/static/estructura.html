@@ -73,81 +73,8 @@
         </div>
     </div>
 </header>
-<main class="container my-5">
-    <!-- Bienvenida personalizada -->
-    <section class="text-center mb-5 pb-4 border-bottom">
-        <h1 class="display-4 fw-bold text-primary mb-3">
-            ¡Bienvenid@, <span th:text="${profesor?.nombre ?: 'Profesor/a'}"></span>!
-        </h1>
-        
-        <p class="lead text-muted">
-            Aquí puedes gestionar empresas, cursos, alumnos y prácticas de tus grupos.
-        </p>
-    </section>
+<main>
 
-    <!-- Tarjetas de accesos rápidos -->
-    <div class="row g-4 justify-content-center">
-        
-        <div class="col-md-4 col-lg-3">
-            <div class="card h-100 shadow border-0 hover-shadow">
-                <div class="card-body text-center py-5">
-                    <i class="bi bi-building fs-1 text-primary mb-4 d-block"></i>
-                    <h5 class="card-title mb-3">Empresas</h5>
-                    <p class="card-text text-muted small mb-4">
-                        Consulta y administra las empresas colaboradoras
-                    </p>
-                    <a href="/empresa/lista-empresas" class="btn btn-outline-primary">
-                        Ir a Empresas
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4 col-lg-3">
-            <div class="card h-100 shadow border-0 hover-shadow">
-                <div class="card-body text-center py-5">
-                    <i class="bi bi-calendar-event fs-1 text-primary mb-4 d-block"></i>
-                    <h5 class="card-title mb-3">Cursos</h5>
-                    <p class="card-text text-muted small mb-4">
-                        Gestiona los cursos y grupos asignados
-                    </p>
-                    <a href="/curso/lista-cursos" class="btn btn-outline-primary">
-                        Ver Cursos
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4 col-lg-3">
-            <div class="card h-100 shadow border-0 hover-shadow">
-                <div class="card-body text-center py-5">
-                    <i class="bi bi-people fs-1 text-primary mb-4 d-block"></i>
-                    <h5 class="card-title mb-3">Alumnos</h5>
-                    <p class="card-text text-muted small mb-4">
-                        Seguimiento de alumnos en prácticas
-                    </p>
-                    <a href="/alumno/lista-alumnos" class="btn btn-outline-primary">
-                        Gestionar Alumnos
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4 col-lg-3">
-            <div class="card h-100 shadow border-0 hover-shadow">
-                <div class="card-body text-center py-5">
-                    <i class="bi bi-journal-check fs-1 text-primary mb-4 d-block"></i>
-                    <h5 class="card-title mb-3">Prácticas</h5>
-                    <p class="card-text text-muted small mb-4">
-                        Administra las prácticas en curso y finalizadas
-                    </p>
-                    <a href="/practica/lista-mis_practicas" class="btn btn-outline-primary">
-                        Mis Prácticas
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 </main>
 <footer class="bg-dark text-white mt-auto">
     <div class="container py-4 py-md-5">

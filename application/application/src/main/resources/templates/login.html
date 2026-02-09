@@ -84,20 +84,52 @@
 					
 					<div class="login-body">
 						<!-- Mensaje de error si existe -->
-						<div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+						<div th:if="${error != null}" class="alert alert-danger alert-dismissible fade show" role="alert">
 							<strong>Error:</strong> Usuario o contraseña incorrectos.
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 						</div>
 
-						<form th:action="@{/procesar-login}" method="post">
-							<label>Email:</label>
-							<input type="email" name="email" required>
+						<div class="container d-flex justify-content-center align-items-center">
+							<div class="card shadow p-4" style="max-width: 400px; width: 100%; border-radius: 12px;">
+								
+								<h3 class="text-center mb-4">Iniciar Sesión</h3>
 
-							<label>Contraseña:</label>
-							<input type="password" name="password" required>
+								<form th:action="@{/procesar-login}" method="post">
 
-							<button type="submit" class="btn btn-primary w-100">Entrar</button>
-						</form>
+								<!-- Email -->
+								<div class="mb-3">
+									<label for="email" class="form-label">Email</label>
+									<input 
+									type="email" 
+									id="email"
+									name="email" 
+									class="form-control form-control-lg" 
+									placeholder="ejemplo@correo.com" 
+									required>
+								</div>
+
+								<!-- Contraseña -->
+								<div class="mb-4">
+									<label for="password" class="form-label">Contraseña</label>
+									<input 
+									type="password" 
+									id="password"
+									name="password" 
+									class="form-control form-control-lg" 
+									placeholder="Introduce tu contraseña" 
+									required>
+								</div>
+
+								<!-- Botón -->
+								<div class="d-grid">
+									<button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+								</div>
+
+								</form>
+
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>

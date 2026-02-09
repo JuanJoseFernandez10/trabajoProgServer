@@ -2,6 +2,8 @@ package com.application.Entitys;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Profesores")
@@ -25,6 +27,8 @@ public class Profesor implements Serializable {
     @Column(name = "directiva", columnDefinition = "TINYINT(1) DEFAULT 0")
     private int esDirectiva;   // 0 = normal, 1 = directiva
 
+    private List<Practica> practicas = new ArrayList<>();
+    
     public Profesor () {
     	
     }
@@ -81,7 +85,15 @@ public class Profesor implements Serializable {
     	this.esDirectiva = directiva; 
     }
 
-    @Override
+    public List<Practica> getPracticas() {
+		return practicas;
+	}
+
+	public void setPracticas(List<Practica> practicas) {
+		this.practicas = practicas;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

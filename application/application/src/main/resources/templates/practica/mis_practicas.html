@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="container-fluid bg-primary text-white shadow-sm py-3">
+    <div class="container d-flex flex-row justify-content-between align-items-center">
+        
+        <!-- Logo -->
+        <a href="/home" class="d-flex align-items-center text-decoration-none">
+            <img src="/logo.png" alt="Logo IES Camas" width="80" class="me-3">
+            <!-- Opcional: si quieres texto al lado del logo -->
+            <!-- <span class="fs-4 fw-bold">IES Camas</span> -->
+        </a>
+
+        <!-- Navegación -->
+        <nav class="d-flex align-items-center gap-4">
+            <a href="/home" class="nav-link text-white fw-medium">Home</a>
+            <a href="/empresa/lista-empresas" class="nav-link text-white fw-medium">Empresas</a>
+            <a href="/curso/lista-cursos" class="nav-link text-white fw-medium">Cursos</a>
+            <a href="/alumno/lista-alumnos" class="nav-link text-white fw-medium">Alumnos</a>
+            <a href="/practica/lista-practicas" class="nav-link text-white fw-medium">Prácticas</a>
+            <a th:if="${rol != 0}" href="/profesor/lista-profesor" class="nav-link text-white fw-medium">Profesores</a>
+        </nav>
+
+        <!-- Login / Logout -->
+        <div class="d-flex align-items-center">
+            <a th:if="${rol == null}" 
+                href="/login" 
+                class="btn btn-outline-light btn-sm px-4 fw-medium">
+                Iniciar sesión
+            </a>
+            <a th:if="${rol != null}" 
+                href="/logout" 
+                class="btn btn-outline-light btn-sm px-4 fw-medium">
+                Cerrar sesión
+            </a>
+        </div>
+    </div>
+</header>
+</body>
+</html>

@@ -5,6 +5,7 @@ import java.util.List;
 import com.application.Entitys.Alumno;
 import com.application.Entitys.Empresa;
 import com.application.Entitys.Practica;
+import com.application.Entitys.Profesor;
 import com.application.Repository.PracticaRepository;
 
 public class PracticaService {
@@ -17,6 +18,12 @@ public class PracticaService {
 	public List<Practica> findeByEmpresa(Empresa empresa) {
 		return repository.findByEmpresa(empresa);
 	}
+	
+	public List<Practica> findByProfesor(Profesor profesor) {
+		return repository.findByProfesor(profesor);
+	}
+
+	
 	public List<Practica> findByAlumnoAndEmpresa(Alumno alumno, Empresa empresa) {
 		return repository.findByAlumnoAndEmpresa(alumno, empresa);
 	}
