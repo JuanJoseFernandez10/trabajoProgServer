@@ -15,7 +15,7 @@ public class PracticaService {
 		return repository.findByAlumno(alumno);
 	}
 	public List<Practica> findeByEmpresa(Empresa empresa) {
-		return repository.findeByEmpresa(empresa);
+		return repository.findByEmpresa(empresa);
 	}
 	public List<Practica> findByAlumnoAndEmpresa(Alumno alumno, Empresa empresa) {
 		return repository.findByAlumnoAndEmpresa(alumno, empresa);

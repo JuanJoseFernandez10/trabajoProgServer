@@ -14,7 +14,7 @@ import com.application.Entitys.Empresa;
 public interface PracticaRepository extends JpaRepository<Practica, Integer>{
 
 	List<Practica> findByAlumno(Alumno alumno);
-	List<Practica> findeByEmpresa(Empresa empresa);
+	List<Practica> findByEmpresa(Empresa empresa);
 	List<Practica> findByAlumnoAndEmpresa(Alumno alumno, Empresa empresa);
 	void deleteByAlumno(Alumno alumno);
 	void deleteByEmpresa(Empresa empresa);

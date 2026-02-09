@@ -16,6 +16,10 @@ public class Empresa implements Serializable {
     @Column(length = 255, nullable = false)
     private String descripcion;
 
+    public Empresa () {
+    	
+    }
+    
     /**
      * Constructor de la clase Empresa
      * @param nombre

@@ -1,6 +1,7 @@
 package com.application.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,10 @@ public class ProfesorService {
 	public Profesor save(Profesor profesor) {
         return repository.save(profesor);
     }
+	
+	public Optional<Profesor> findByEmail(String email) {
+		return repository.findByEmail(email);
+	}
 
     public List<Profesor> findAll() {
         return repository.findAll();

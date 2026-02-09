@@ -18,6 +18,10 @@ public class Curso implements Serializable {
     @OneToMany(mappedBy = "curso")
     private List<Alumno> alumnos = new ArrayList<Alumno>();
 
+    public Curso () {
+    	
+    }
+    
     /**
      * Constructor de la clase Curso
      * @param nombre

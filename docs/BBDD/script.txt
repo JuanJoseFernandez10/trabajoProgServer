@@ -55,3 +55,5 @@ CREATE TABLE Comentarios(
     REFERENCES Profesores(email)
     ON DELETE CASCADE
 );
+
+INSERT INTO `profesores` (`nombre`, `apellidos`, `email`, `contraseña`, `directiva`) VALUES ('administrador', 'admin', 'administrador@gmail.com', 'admin123', '1');

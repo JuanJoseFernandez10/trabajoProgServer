@@ -27,6 +27,10 @@ public class Alumno implements Serializable {
     @JoinColumn(name = "curso", nullable = false)
     private Curso curso;
 
+    public Alumno () {
+    	
+    }
+    
     /**
      * Constructor de la clase Alumno
      * @param email

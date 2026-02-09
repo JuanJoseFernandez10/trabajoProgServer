@@ -22,9 +22,13 @@ public class Profesor implements Serializable {
     @Column(length = 255, nullable = false)
     private String contraseña;
 
-    @Column(nullable = false)
-    private boolean directiva = false;
+    @Column(name = "directiva", columnDefinition = "TINYINT(1) DEFAULT 0")
+    private int esDirectiva;   // 0 = normal, 1 = directiva
 
+    public Profesor () {
+    	
+    }
+    
     /**
      * Constructor de la clase Profesor
      * @param email
@@ -33,12 +37,12 @@ public class Profesor implements Serializable {
      * @param contraseña
      * @param directiva
      */
-    public Profesor(String email, String nombre, String apellidos, String contraseña, boolean directiva) {
+    public Profesor(String email, String nombre, String apellidos, String contraseña, int directiva) {
         this.email = email;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.contraseña = contraseña;
-        this.directiva = directiva;
+        this.esDirectiva = directiva;
     }
 
     // Getters y setters
@@ -70,11 +74,11 @@ public class Profesor implements Serializable {
     	this.contraseña = contraseña; 
     }
 
-    public boolean isDirectiva() { 
-    	return directiva; 
+    public int isDirectiva() { 
+    	return esDirectiva; 
     }
-    public void setDirectiva(boolean directiva) { 
-    	this.directiva = directiva; 
+    public void setDirectiva(int directiva) { 
+    	this.esDirectiva = directiva; 
     }
 
     @Override
